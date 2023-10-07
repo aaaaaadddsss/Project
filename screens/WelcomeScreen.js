@@ -5,7 +5,7 @@ const WelcomeScreen = ({ navigation }) => {
     return (
         <View style = {styles.Container}>
             <TouchableOpacity
-                onPress={()=>navigation.navigate("HomeScreen")}>
+                onPress={()=>navigation.navigate("PresetScreen")}>
                 <Image 
                     source={require("../assets/LogoRed.png")}
                     style = {styles.LogoImg}/>

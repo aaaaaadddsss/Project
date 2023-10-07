@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
 import React from 'react'
 import { FontAwesome } from "@expo/vector-icons";
 
-
 const Header = ({ headerText, headerIcon }) => {
   return (
     <View style={styles.container}>
@@ -24,14 +23,15 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     flex: 1,
-    borderBottomWidth: 2,
+    borderBottomWidth: 5,
     borderBottomColor: "#005CB9",
-    marginHorizontal: 20
+    marginHorizontal: 20,
+    paddingBottom: 9, // Add marginBottom for a margin beneath the border
   },
   sectionTitle: {
-    fontSize: 35,
+    fontSize: 30,
     color: "#CE0E2D",
+    marginTop: 20,
+    fontFamily: 'bungee',
   },
-  iconContainer: {
-  }
 });
