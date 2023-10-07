@@ -1,31 +1,19 @@
 export const WorkOutSplit = [
   {
     id: "01",
-    split: "PUSH",
+    split: "PPL",
   },
   {
     id: "02",
-    split: "PULL",
-  },
-  {
-    id: "03",
-    split: "LEGS",
-  },
-  {
-    id: "04",
     split: "BRO SPLIT",
   },
   {
-    id: "05",
+    id: "03",
     split: "ARNOLD SPLIT",
   },
   {
-    id: "06",
-    split: "UPPER",
-  },
-  {
-    id: "07",
-    split: "LOWER",
+    id: "04",
+    split: "UPPER AND LOWER",
   },
 ];
 
@@ -197,5 +185,11 @@ export const exerciseList = [
         "Bicycle Crunches",
         "Leg Raise"
     ],
-  }
+  },
+  // UPPER
+  {
+
+  },
+
+
 ];

@@ -5,11 +5,17 @@ import WorkoutSplitFilter from '../components/WorkoutSplitFilter'
 
 const PresetScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safeArea}>
       <Header headerText={"Recommendations"} />
+      
+      {/* Workout Split */}
+      <View style={styles.container}>
+        <WorkoutSplitFilter />
+      </View>
 
-    {/* Workout Split */}
-    <WorkoutSplitFilter />
+      <View style={styles.container}>
+        
+      </View>
     </SafeAreaView>
   )
 }
@@ -17,8 +23,12 @@ const PresetScreen = () => {
 export default PresetScreen
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
     backgroundColor: "#24272A",
-  }
+  },
+  container: {
+    flex: 1,
+    marginHorizontal: 20,
+  },
 })

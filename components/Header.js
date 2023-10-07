@@ -20,12 +20,12 @@ export default Header;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    marginHorizontal: 20,
   },
   titleContainer: {
     flex: 1,
     borderBottomWidth: 5,
     borderBottomColor: "#005CB9",
-    marginHorizontal: 20,
     paddingBottom: 9, // Add marginBottom for a margin beneath the border
   },
   sectionTitle: {

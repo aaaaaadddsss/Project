@@ -12,6 +12,7 @@ import HomeScreen from "../screens/HomeScreen";
 //Font
 Font.loadAsync({
     'bungee': require('../assets/fonts/Bungee-Regular.ttf'),
+    'bvpl': require('../assets/fonts/BeVietnamPro-Light.ttf')
   });
 
 
