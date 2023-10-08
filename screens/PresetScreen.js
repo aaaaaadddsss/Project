@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
 import React from 'react'
 import Header from '../components/Header'
 import WorkoutSplitFilter from '../components/WorkoutSplitFilter'
+import Cards from '../components/Cards'
 
 const PresetScreen = () => {
   return (
@@ -13,8 +14,8 @@ const PresetScreen = () => {
         <WorkoutSplitFilter />
       </View>
 
-      <View style={styles.container}>
-        
+      <View style={styles.container1}>
+        <Cards />
       </View>
     </SafeAreaView>
   )
@@ -28,7 +29,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#24272A",
   },
   container: {
-    flex: 1,
     marginHorizontal: 20,
   },
+  container1: {
+    flex: 1,
+    marginHorizontal: 50,
+  }
 })

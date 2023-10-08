@@ -27,14 +27,14 @@ export const exerciseList = [
     exercises: ["Katana Extension", "Cable Tricep Pushdown"],
   },
   {
-    id: "01",
+    id: "02",
     name: "SHOULDER",
     image: require("./assets/Icons/ShoulderIcon.png"),
     color: "#fff",
     exercises: ["Lateral Raise", "Dumbbell Shoulder Press"],
   },
   {
-    id: "01",
+    id: "03",
     name: "CHEST",
     image: require("./assets/Icons/ChestIcon.png"),
     color: "#fff",
@@ -49,21 +49,21 @@ export const exerciseList = [
   },
   // PULL
   {
-    id: "02",
+    id: "04",
     name: "BACK",
     image: require("./assets/Icons/BackIcon.png"),
     color: "#fff",
     exercises: ["Lat Pulldowns", "Chest Supported Dumbbell Row"],
   },
   {
-    id: "02",
+    id: "05",
     name: "BICEP",
     image: require("./assets/Icons/BicepIcon.png"),
     color: "#fff",
     exercises: ["Incline Curls", "Hammer Curls", "Spider Curls"],
   },
   {
-    id: "02",
+    id: "06",
     name: "REAR DELTS",
     image: require("./assets/Icons/ShoulderIcon.png"),
     color: "#fff",
@@ -71,7 +71,7 @@ export const exerciseList = [
   },
   // LEGS
   {
-    id: "03",
+    id: "07",
     name: "LEGS",
     image: require("./assets/Icons/LegIcon.png"),
     color: "#fff",
@@ -85,7 +85,7 @@ export const exerciseList = [
   },
   //BRO Split
   {
-    id: "04",
+    id: "08",
     name: "CHEST",
     image: require("./assets/Icons/ChestIcon.png"),
     color: "#fff",
@@ -99,7 +99,7 @@ export const exerciseList = [
     ],
   },
   {
-    id: "04",
+    id: "09",
     name: "SHOULDER",
     image: require("./assets/Icons/ShoulderIcon.png"),
     color: "#fff",
@@ -111,7 +111,7 @@ export const exerciseList = [
     ],
   },
   {
-    id: "04",
+    id: "10",
     name: "LEGS",
     image: require("./assets/Icons/LegIcon.png"),
     color: "#fff",
@@ -124,7 +124,7 @@ export const exerciseList = [
     ],
   },
   {
-    id: "04",
+    id: "11",
     name: "ARMS",
     image: require("./assets/Icons/BicepIcon.png"),
     color: "#fff",
@@ -138,7 +138,7 @@ export const exerciseList = [
     ],
   },
   {
-    id: "04",
+    id: "12",
     name: "BACK",
     image: require("./assets/Icons/BackIcon.png"),
     color: "#fff",
@@ -152,7 +152,7 @@ export const exerciseList = [
   },
   //ARNOLD Split
   {
-    id: "05",
+    id: "13",
     name: "CHEST",
     image: require("./assets/Icons/ChestIcon.png"),
     color: "#fff",
@@ -163,7 +163,7 @@ export const exerciseList = [
     ],
   },
   {
-    id: "05",
+    id: "14",
     name: "BACK",
     image: require("./assets/Icons/BackIcon.png"),
     color: "#fff",
@@ -174,7 +174,7 @@ export const exerciseList = [
     ],
   },
   {
-    id: "05",
+    id: "15",
     name: "ABS",
     image: require("./assets/Icons/AbsIcon.png"),
     color: "#fff",
