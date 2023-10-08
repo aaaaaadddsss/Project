@@ -1,17 +1,32 @@
-import { StyleSheet, Text, View, FlatList, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  Pressable,
+} from "react-native";
 import React from "react";
 import { exerciseList } from "../Preset";
+import { useNavigation } from "@react-navigation/native";
 
 const Cards = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <FlatList
         data={exerciseList}
         renderItem={({ item }) => (
-          <View style={styles.container}>
-            <Image source={item.image} style={styles.img} />
-            <Text style={styles.textStyle}> {item.name}</Text>
-          </View>
+          <Pressable
+            onPress={() =>
+              navigation.navigate("ExerciseScreenDetail", { item: item })
+            }
+          >
+            <View style={styles.container}>
+              <Image source={item.image} style={styles.img} />
+              <Text style={styles.textStyle}> {item.name}</Text>
+            </View>
+          </Pressable>
         )}
         numColumns={2}
         columnWrapperStyle={{
@@ -27,16 +42,17 @@ export default Cards;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 15,
     marginVertical: 9,
     alignItems: "center",
     //marginHorizontal: 30,
-    paddingVertical: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
   },
   textStyle: {
-    color: "white",
-    fontFamily: "bvpl",
+    color: "#fff",
+    fontFamily: "bayon",
     fontSize: 20,
+    letterSpacing: 4.5,
     paddingVertical: 20,
   },
   img: {

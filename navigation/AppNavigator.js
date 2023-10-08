@@ -8,11 +8,13 @@ import * as Font from 'expo-font';
 import WelcomeScreen from "../screens/WelcomeScreen";
 import PresetScreen from "../screens/PresetScreen";
 import HomeScreen from "../screens/HomeScreen";
+import ExerciseScreenDetail from "../screens/ExerciseScreenDetail";
 
-//Font
+//Fonts
 Font.loadAsync({
     'bungee': require('../assets/fonts/Bungee-Regular.ttf'),
-    'bvpl': require('../assets/fonts/BeVietnamPro-Light.ttf')
+    'bvpl': require('../assets/fonts/BeVietnamPro-Light.ttf'),
+    'bayon': require('../assets/fonts/Bayon-Regular.ttf')
   });
 
 
@@ -24,6 +26,7 @@ const AppNavigator = () => {
                 <Stack.Screen name = "WelcomeScreen" component={WelcomeScreen} />
                 <Stack.Screen name = "PresetScreen" component={PresetScreen} />
                 <Stack.Screen name = "HomeScreen" component={HomeScreen} />
+                <Stack.Screen name = "ExerciseScreenDetail" component={ExerciseScreenDetail} />
             </Stack.Navigator>
         </NavigationContainer>
     );
