@@ -1,21 +1,30 @@
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import React from "react";
+import { StyleSheet, View, SafeAreaView } from "react-native";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import WorkoutSplitFilter from "../components/WorkoutSplitFilter";
 import Cards from "../components/Cards";
 
 const PresetScreen = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleCategoryPress = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <Header headerText={"Recommendations"} />
 
       {/* Workout Split */}
       <View style={styles.container}>
-        <WorkoutSplitFilter />
+        <WorkoutSplitFilter
+          onSelectCategory={handleCategoryPress}
+          selectedCategory={selectedCategory}
+        />
       </View>
 
       <View style={styles.container1}>
-        <Cards />
+        <Cards selectedCategory={selectedCategory} />
       </View>
     </SafeAreaView>
   );

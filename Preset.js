@@ -22,6 +22,7 @@ export const exerciseList = [
   {
     id: "01",
     name: "TRICEPS",
+    category: "PPL",
     image: require("./assets/Icons/TricepIcon.png"),
     color: "#fff",
     exercises: ["Katana Extension", "Cable Tricep Pushdown"],
@@ -29,6 +30,7 @@ export const exerciseList = [
   {
     id: "02",
     name: "SHOULDERS",
+    category: "PPL",
     image: require("./assets/Icons/ShoulderIcon.png"),
     color: "#fff",
     exercises: ["Lateral Raise", "Dumbbell Shoulder Press"],
@@ -36,6 +38,7 @@ export const exerciseList = [
   {
     id: "03",
     name: "CHEST",
+    category: "PPL",
     image: require("./assets/Icons/ChestIcon.png"),
     color: "#fff",
     exercises: [
@@ -51,6 +54,7 @@ export const exerciseList = [
   {
     id: "04",
     name: "BACK",
+    category: "PPL",
     image: require("./assets/Icons/BackIcon.png"),
     color: "#fff",
     exercises: ["Lat Pulldowns", "Chest Supported Dumbbell Row"],
@@ -58,6 +62,7 @@ export const exerciseList = [
   {
     id: "05",
     name: "BICEPS",
+    category: "PPL",
     image: require("./assets/Icons/BicepIcon.png"),
     color: "#fff",
     exercises: ["Incline Curls", "Hammer Curls", "Spider Curls"],
@@ -65,6 +70,7 @@ export const exerciseList = [
   {
     id: "06",
     name: "REAR DELTS",
+    category: "PPL",
     image: require("./assets/Icons/ShoulderIcon.png"),
     color: "#fff",
     exercises: ["Rear Delt Flies"],
@@ -73,6 +79,7 @@ export const exerciseList = [
   {
     id: "07",
     name: "LEGS",
+    category: "PPL",
     image: require("./assets/Icons/LegIcon.png"),
     color: "#fff",
     exercises: [
@@ -87,6 +94,7 @@ export const exerciseList = [
   {
     id: "08",
     name: "CHEST",
+    category: "BRO SPLIT",
     image: require("./assets/Icons/ChestIcon.png"),
     color: "#fff",
     exercises: [
@@ -101,6 +109,7 @@ export const exerciseList = [
   {
     id: "09",
     name: "SHOULDERS",
+    category: "BRO SPLIT",
     image: require("./assets/Icons/ShoulderIcon.png"),
     color: "#fff",
     exercises: [
@@ -113,6 +122,7 @@ export const exerciseList = [
   {
     id: "10",
     name: "LEGS",
+    category: "BRO SPLIT",
     image: require("./assets/Icons/LegIcon.png"),
     color: "#fff",
     exercises: [
@@ -126,6 +136,7 @@ export const exerciseList = [
   {
     id: "11",
     name: "ARMS",
+    category: "BRO SPLIT",
     image: require("./assets/Icons/BicepIcon.png"),
     color: "#fff",
     exercises: [
@@ -140,6 +151,7 @@ export const exerciseList = [
   {
     id: "12",
     name: "BACK",
+    category: "BRO SPLIT",
     image: require("./assets/Icons/BackIcon.png"),
     color: "#fff",
     exercises: [
@@ -150,10 +162,11 @@ export const exerciseList = [
       "Deadlift",
     ],
   },
-  //ARNOLD Split
+  //ARNOLD_SPLIT Split
   {
     id: "13",
     name: "CHEST",
+    category: "ARNOLD SPLIT",
     image: require("./assets/Icons/ChestIcon.png"),
     color: "#fff",
     exercises: ["Dumbbell Bench Press", "Incline Dumbbell Bench Press", "Dips"],
@@ -161,6 +174,7 @@ export const exerciseList = [
   {
     id: "14",
     name: "BACK",
+    category: "ARNOLD SPLIT",
     image: require("./assets/Icons/BackIcon.png"),
     color: "#fff",
     exercises: ["Pull Ups", "Dumbbell Rows", "Barbell Rows"],
@@ -168,6 +182,7 @@ export const exerciseList = [
   {
     id: "15",
     name: "ABS",
+    category: "ARNOLD SPLIT",
     image: require("./assets/Icons/AbsIcon.png"),
     color: "#fff",
     exercises: [

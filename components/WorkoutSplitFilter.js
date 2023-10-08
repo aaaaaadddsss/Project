@@ -2,21 +2,25 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { WorkOutSplit } from "../Preset";
 
-const WorkoutSplitFilter = () => {
+const WorkoutSplitFilter = ({ onSelectCategory, selectedCategory }) => {
   return (
-    <View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {WorkOutSplit.map((split, index) => {
-          return (
-            <View style={styles.container}>
-              <Text style={{ color: "white", fontFamily: "bvpl" }}>
-                {split.split}
-              </Text>
-            </View>
-          );
-        })}
-      </ScrollView>
-    </View>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      {WorkOutSplit.map((split, index) => {
+        return (
+          <View style={styles.container} key={split.id}>
+            <Text
+              style={{
+                color: selectedCategory === split.split ? "red" : "white",
+                fontFamily: "bvpl",
+              }}
+              onPress={() => onSelectCategory(split.split)}
+            >
+              {split.split}
+            </Text>
+          </View>
+        );
+      })}
+    </ScrollView>
   );
 };
 

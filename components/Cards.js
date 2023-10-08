@@ -10,12 +10,17 @@ import React from "react";
 import { exerciseList } from "../Preset";
 import { useNavigation } from "@react-navigation/native";
 
-const Cards = () => {
+const Cards = ({ selectedCategory }) => {
+  // Filter exerciseList based on the selected category
+  const filteredExerciseList = selectedCategory
+    ? exerciseList.filter((item) => item.category === selectedCategory)
+    : exerciseList;
+
   const navigation = useNavigation();
   return (
     <View>
       <FlatList
-        data={exerciseList}
+        data={filteredExerciseList}
         renderItem={({ item }) => (
           <Pressable
             onPress={() =>
