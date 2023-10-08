@@ -57,7 +57,7 @@ export const exerciseList = [
   },
   {
     id: "05",
-    name: "BICEPS",
+    name: "BICEP",
     image: require("./assets/Icons/BicepIcon.png"),
     color: "#fff",
     exercises: ["Incline Curls", "Hammer Curls", "Spider Curls"],
@@ -100,7 +100,7 @@ export const exerciseList = [
   },
   {
     id: "09",
-    name: "SHOULDERS",
+    name: "SHOULDER",
     image: require("./assets/Icons/ShoulderIcon.png"),
     color: "#fff",
     exercises: [
@@ -147,7 +147,7 @@ export const exerciseList = [
       "Chest Supported Rows",
       "Lat Pulldown",
       "Pull Ups",
-      "Deadlift"
+      "Deadlift",
     ],
   },
   //ARNOLD Split
@@ -156,22 +156,14 @@ export const exerciseList = [
     name: "CHEST",
     image: require("./assets/Icons/ChestIcon.png"),
     color: "#fff",
-    exercises: [
-        "Dumbbell Bench Press",
-        "Incline Dumbbell Bench Press",
-        "Dips",
-    ],
+    exercises: ["Dumbbell Bench Press", "Incline Dumbbell Bench Press", "Dips"],
   },
   {
     id: "14",
     name: "BACK",
     image: require("./assets/Icons/BackIcon.png"),
     color: "#fff",
-    exercises: [
-        "Pull Ups",
-        "Dumbbell Rows",
-        "Barbell Rows",
-    ],
+    exercises: ["Pull Ups", "Dumbbell Rows", "Barbell Rows"],
   },
   {
     id: "15",
@@ -179,17 +171,13 @@ export const exerciseList = [
     image: require("./assets/Icons/AbsIcon.png"),
     color: "#fff",
     exercises: [
-        "Crunches",
-        "Flutter Kicks",
-        "Planks",
-        "Bicycle Crunches",
-        "Leg Raise"
+      "Crunches",
+      "Flutter Kicks",
+      "Planks",
+      "Bicycle Crunches",
+      "Leg Raise",
     ],
   },
   // UPPER
-  {
-
-  },
-
-
+  {},
 ];

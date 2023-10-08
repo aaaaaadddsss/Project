@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
   },
   container1: {
     flex: 1,
-    marginHorizontal: 50,
+    marginHorizontal: 45,
   }
 })

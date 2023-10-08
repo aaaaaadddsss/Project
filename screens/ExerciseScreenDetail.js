@@ -94,8 +94,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
   },
   exerciseTitle: {
-    marginVertical: 30,
+    marginVertical: 20,
     marginLeft: 20,
+    marginBottom: 20,
     alignSelf: "flex-start",
   },
   exerciseName: {
