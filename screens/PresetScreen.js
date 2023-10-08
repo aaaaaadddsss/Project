@@ -1,14 +1,14 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
-import React from 'react'
-import Header from '../components/Header'
-import WorkoutSplitFilter from '../components/WorkoutSplitFilter'
-import Cards from '../components/Cards'
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import React from "react";
+import Header from "../components/Header";
+import WorkoutSplitFilter from "../components/WorkoutSplitFilter";
+import Cards from "../components/Cards";
 
 const PresetScreen = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <Header headerText={"Recommendations"} />
-      
+
       {/* Workout Split */}
       <View style={styles.container}>
         <WorkoutSplitFilter />
@@ -18,10 +18,10 @@ const PresetScreen = () => {
         <Cards />
       </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default PresetScreen
+export default PresetScreen;
 
 const styles = StyleSheet.create({
   safeArea: {
@@ -34,5 +34,5 @@ const styles = StyleSheet.create({
   container1: {
     flex: 1,
     marginHorizontal: 45,
-  }
-})
+  },
+});

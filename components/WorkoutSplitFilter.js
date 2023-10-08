@@ -5,13 +5,13 @@ import { WorkOutSplit } from "../Preset";
 const WorkoutSplitFilter = () => {
   return (
     <View>
-      <ScrollView 
-        horizontal
-        showsHorizontalScrollIndicator={false}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {WorkOutSplit.map((split, index) => {
           return (
             <View style={styles.container}>
-              <Text style={{ color: "white", fontFamily: 'bvpl' }}>{split.split}</Text>
+              <Text style={{ color: "white", fontFamily: "bvpl" }}>
+                {split.split}
+              </Text>
             </View>
           );
         })}

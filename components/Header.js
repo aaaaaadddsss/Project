@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 
 const Header = ({ headerText, headerIcon }) => {
@@ -19,7 +19,7 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginHorizontal: 20,
   },
   titleContainer: {
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "#CE0E2D",
     marginTop: 20,
-    fontFamily: 'bungee',
+    fontFamily: "bungee",
   },
 });
