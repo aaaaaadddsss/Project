@@ -57,7 +57,7 @@ export const exerciseList = [
   },
   {
     id: "05",
-    name: "BICEP",
+    name: "BICEPS",
     image: require("./assets/Icons/BicepIcon.png"),
     color: "#fff",
     exercises: ["Incline Curls", "Hammer Curls", "Spider Curls"],
@@ -100,7 +100,7 @@ export const exerciseList = [
   },
   {
     id: "09",
-    name: "SHOULDER",
+    name: "SHOULDERS",
     image: require("./assets/Icons/ShoulderIcon.png"),
     color: "#fff",
     exercises: [
