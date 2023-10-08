@@ -1,6 +1,6 @@
 // Dependencies
-import { StyleSheet, Text, View, Image } from "react-native";
-import React, { useEffect } from "react";
+import { StyleSheet, Text, View, Image, Animated, Easing} from "react-native";
+import React, { useEffect, useRef } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -23,21 +23,46 @@ const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 function SplashScreen({ navigation }) {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
   useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 500, // Adjust the duration as needed
+      easing: Easing.linear,
+      useNativeDriver: true, // Add this for better performance
+    }).start();
+
     const timer = setTimeout(() => {
-      navigation.replace("Home");
-    }, 2000); // 3 seconds
+      // Start the fade-out animation
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 500, // Adjust the duration as needed
+        easing: Easing.linear,
+        useNativeDriver: true, // Add this for better performance
+      }).start(() => {
+        // After the fade-out, navigate to the Home screen
+        navigation.replace("Home");
+      });
+    }, 2000); // 2 seconds
 
     return () => clearTimeout(timer);
-  }, [navigation]);
+  }, [fadeAnim, navigation]);
 
   return (
-    <View style={styles.container}>
+    <Animated.View
+      style={[
+        styles.container,
+        {
+          opacity: fadeAnim, // Apply opacity based on the fadeAnim value
+        },
+      ]}
+    >
       <Image
-        source={require("../assets/Icons/ChestIcon.png")}
+        source={require("../assets/RedIcon/LogoRed.png")}
         style={styles.splashImage}
       />
-    </View>
+    </Animated.View>
   );
 }
 
@@ -67,46 +92,46 @@ function MainScreen() {
               <Image
                 source={require("../assets/Icons/HomeIcon.png")}
                 resizeMode="contain"
-                style={{ 
-                  width: focused ? 30 : 25, 
+                style={{
+                  width: focused ? 30 : 25,
                   height: focused ? 30 : 25,
-                }} 
+                }}
               />
             </View>
           ),
         }}
       />
-      <Tab.Screen 
-        name="Preset" 
-        component={PresetScreen} 
+      <Tab.Screen
+        name="Preset"
+        component={PresetScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <Image
                 source={require("../assets/Icons/DBIcon.png")}
                 resizeMode="contain"
-                style={{ 
-                  width: focused ? 30 : 25, 
+                style={{
+                  width: focused ? 30 : 25,
                   height: focused ? 30 : 25,
-                }} 
+                }}
               />
             </View>
           ),
         }}
       />
-      <Tab.Screen 
-        name="Detail" 
-        component={ExerciseScreenDetail} 
+      <Tab.Screen
+        name="Detail"
+        component={ExerciseScreenDetail}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <Image
                 source={require("../assets/Icons/DetailIcon.png")}
                 resizeMode="contain"
-                style={{ 
-                  width: focused ? 30 : 25, 
+                style={{
+                  width: focused ? 30 : 25,
                   height: focused ? 30 : 25,
-                }} 
+                }}
               />
             </View>
           ),
@@ -137,10 +162,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#24272A",
   },
   splashImage: {
     width: 200,
     height: 200,
-    resizeMode: "contain",
   },
 });
