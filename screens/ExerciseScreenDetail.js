@@ -16,7 +16,7 @@ const ExerciseScreenDetail = ({ navigation, route }) => {
     <View style={styles.container}>
       {/* Header Button */}
       <SafeAreaView>
-        <Pressable onPress={() => navigation.goBack()}>
+        <Pressable onPress={() => navigation.navigate('Preset')}>
           <Image
             source={require("../assets/Icons/BackButtonIcon.png")}
             style={styles.HeaderButton}
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     marginTop: 120,
     fontFamily: "bungee",
     color: "#000",
-    fontSize: 40,
+    fontSize: 35,
   },
   exerciseTitle: {
     marginVertical: 20,

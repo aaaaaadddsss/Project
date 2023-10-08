@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import WorkoutSplitFilter from "../components/WorkoutSplitFilter";
 import Cards from "../components/Cards";
+import { useNavigation } from "@react-navigation/native";
 
 const PresetScreen = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -11,6 +12,8 @@ const PresetScreen = () => {
     setSelectedCategory(category);
   };
 
+  const navigation = useNavigation();
+  
   return (
     <SafeAreaView style={styles.safeArea}>
       <Header headerText={"Recommendations"} />

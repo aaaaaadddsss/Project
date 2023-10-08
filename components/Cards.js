@@ -24,7 +24,7 @@ const Cards = ({ selectedCategory }) => {
         renderItem={({ item }) => (
           <Pressable
             onPress={() =>
-              navigation.navigate("ExerciseScreenDetail", { item: item })
+              navigation.navigate("Detail", { item: item })
             }
           >
             <View style={styles.container}>
@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontFamily: "bayon",
     fontSize: 20,
-    letterSpacing: 4.5,
     paddingVertical: 20,
   },
   img: {
