@@ -55,6 +55,8 @@ const styles = StyleSheet.create({
     height: 100,
   },
   calendarHeader: {
+    paddingTop: 20,
+    paddingBottom: 5,
     color: "white",
   },
   dateText: {
