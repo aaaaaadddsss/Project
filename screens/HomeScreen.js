@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { StyleSheet, View, SafeAreaView } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView } from "react-native"; // Import Text
 import Header from "../components/Header";
 import CalendarStrip from "react-native-calendar-strip";
-
+import TemplateManager from "../components/TemplateManager";
 
 const HomeScreen = () => {
   const [selectedDateRange, setSelectedDateRange] = useState({
@@ -26,7 +26,7 @@ const HomeScreen = () => {
             borderWidth: 1,
             borderHighlightColor: "white",
           }}
-          
+
           style={styles.calendar}
           calendarHeaderStyle={styles.calendarHeader}
           dateNumberStyle={styles.dateText}
@@ -35,7 +35,8 @@ const HomeScreen = () => {
           highlightDateNameStyle={styles.highlightDateText}
           onWeekChanged={onWeekChanged}
         />
-        {/* Other content for the HomeScreen */}
+        
+        <TemplateManager />
       </View>
     </SafeAreaView>
   );
@@ -64,6 +65,15 @@ const styles = StyleSheet.create({
   },
   highlightDateText: {
     color: "yellow",
+  },
+  workoutText: {
+    fontWeight: "bold", 
+    color: "white",
+    fontSize: 30, 
+    textAlign: "left", 
+    marginTop: 20, 
+    fontFamily: "helvetica",
+    marginLeft: 20,
   },
 });
 
