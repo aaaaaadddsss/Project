@@ -202,12 +202,12 @@ const TemplateManager = () => {
         )}
         <TextInput
           style={templateStyles.input}
-          placeholder="New Template Name"
+          placeholder="New Workout plan"
           value={newTemplateName}
           onChangeText={(text) => setNewTemplateName(text)}
         />
         <TouchableOpacity style={templateStyles.addButton} onPress={addTemplate}>
-          <Text style={templateStyles.addButtonText}>Add Template</Text>
+          <Text style={templateStyles.addButtonText}>Add Workout</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -221,6 +221,7 @@ const templateStyles = StyleSheet.create({
   container: {
     marginTop: 20,
     padding: 10,
+    margin: 20,
   },
   heading: {
     fontSize: 20,
@@ -262,7 +263,7 @@ const templateStyles = StyleSheet.create({
     marginRight: 10,
   },
   addButton: {
-    backgroundColor: "#CE0E2D",
+    backgroundColor: "#C  E0E2D",
     padding: 10,
     alignItems: "center",
     fontFamily: "Bungee",
