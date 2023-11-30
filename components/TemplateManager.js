@@ -10,7 +10,8 @@ import {
   ScrollView,
 } from "react-native";
 
-const TemplateManager = () => {
+
+const TemplateManager = ({ onUpdateTemplates }) => {
   const [templates, setTemplates] = useState([]);
   const [newTemplateName, setNewTemplateName] = useState("");
   const [currentTemplate, setCurrentTemplate] = useState(null);
@@ -23,8 +24,10 @@ const TemplateManager = () => {
 
   const addTemplate = () => {
     if (newTemplateName) {
-      setTemplates([...templates, { name: newTemplateName, exercises: [] }]);
+      const newTemplate = { name: newTemplateName, exercises: [] };
+      setTemplates([...templates, newTemplate]);
       setNewTemplateName("");
+      onUpdateTemplates([...templates, newTemplate]);
     }
   };
 
@@ -234,7 +237,7 @@ const templateStyles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     marginBottom: 10,
-    fontFamily: "Helvetica",
+    fontFamily: "bungee",
   },
   templateItem: {
     backgroundColor: "#333",
@@ -266,7 +269,7 @@ const templateStyles = StyleSheet.create({
     backgroundColor: "#C  E0E2D",
     padding: 10,
     alignItems: "center",
-    fontFamily: "Bungee",
+    fontFamily: "bungee",
   },
   addButtonText: {
     color: "white",

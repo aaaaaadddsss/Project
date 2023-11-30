@@ -5,12 +5,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as Font from "expo-font";
-
+import { TemplateProvider, useTemplateContext } from "../context/TemplateContext";
 // Screens
 import WelcomeScreen from "../screens/WelcomeScreen";
 import PresetScreen from "../screens/PresetScreen";
 import HomeScreen from "../screens/HomeScreen";
 import ExerciseScreenDetail from "../screens/ExerciseScreenDetail";
+import CreateTemplateScreen from "../screens/CreateTemplateScreen";
 
 // Fonts
 Font.loadAsync({
@@ -67,6 +68,7 @@ function SplashScreen({ navigation }) {
 }
 
 function MainScreen() {
+  const {templates} = useTemplateContext();
   return (
     <Tab.Navigator
       screenOptions={{
@@ -85,12 +87,30 @@ function MainScreen() {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        children={() => <HomeScreen templates={templates}/>}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <Image
                 source={require("../assets/Icons/HomeIcon.png")}
+                resizeMode="contain"
+                style={{
+                  width: focused ? 30 : 25,
+                  height: focused ? 30 : 25,
+                }}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Createtemplate"
+        component={CreateTemplateScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
+              <Image
+                source={require("../assets/Icons/icons8-add-50.png")}
                 resizeMode="contain"
                 style={{
                   width: focused ? 30 : 25,
@@ -144,13 +164,13 @@ function MainScreen() {
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="SplashScreen"
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="Home" component={MainScreen} />
+      <Stack.Navigator initialRouteName="SplashScreen" screenOptions={{ headerShown: false }}>
+       <Stack.Screen name="SplashScreen" component={SplashScreen} />
+       <Stack.Screen name="Home" component={MainScreen} />
+       {/* Rename the nested Home screen */}
+       <Stack.Screen name="NestedHome" component={HomeScreen} />
       </Stack.Navigator>
+
     </NavigationContainer>
   );
 };

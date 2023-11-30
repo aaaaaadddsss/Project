@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, SafeAreaView } from "react-native"; // Import Text
+import { StyleSheet, View, Text, SafeAreaView } from "react-native";
 import Header from "../components/Header";
 import CalendarStrip from "react-native-calendar-strip";
-import TemplateManager from "../components/TemplateManager";
 
-const HomeScreen = () => {
+const HomeScreen = ({ templates }) => {
   const [selectedDateRange, setSelectedDateRange] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -18,6 +17,16 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <Header headerText="Home" />
+
+        {/* Display workout templates */}
+        {templates.map((template, index) => (
+          <View key={index} style={styles.workoutContainer}>
+            <Text style={styles.workoutTitle}>{template.name}</Text>
+            {/* Add more details as needed */}
+          </View>
+        ))}
+
+        {/* Calendar */}
         <CalendarStrip
           calendarAnimation={{ type: "sequence", duration: 30 }}
           daySelectionAnimation={{
@@ -26,7 +35,6 @@ const HomeScreen = () => {
             borderWidth: 1,
             borderHighlightColor: "white",
           }}
-
           style={styles.calendar}
           calendarHeaderStyle={styles.calendarHeader}
           dateNumberStyle={styles.dateText}
@@ -35,8 +43,6 @@ const HomeScreen = () => {
           highlightDateNameStyle={styles.highlightDateText}
           onWeekChanged={onWeekChanged}
         />
-        
-        <TemplateManager />
       </View>
     </SafeAreaView>
   );
@@ -66,13 +72,14 @@ const styles = StyleSheet.create({
   highlightDateText: {
     color: "yellow",
   },
-  workoutText: {
-    fontWeight: "bold", 
+  workoutContainer: {
+    marginBottom: 20,
+  },
+  workoutTitle: {
+    fontWeight: "bold",
     color: "white",
-    fontSize: 30, 
-    textAlign: "left", 
-    marginTop: 20, 
-    fontFamily: "helvetica",
+    fontSize: 24,
+    marginTop: 10,
     marginLeft: 20,
   },
 });
