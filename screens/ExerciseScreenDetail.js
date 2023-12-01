@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   headerColor: {
     flex: 1,
-    marginTop: 150,
+    marginTop: 100,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     backgroundColor: "#CE0E2D",
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     marginHorizontal: 20,
-    marginTop: 20,
+    marginTop: 35,
   },
   itemName: {
     marginTop: 120,
