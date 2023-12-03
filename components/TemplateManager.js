@@ -299,7 +299,7 @@ const templateStyles = StyleSheet.create({
   },
   addButton: {
     backgroundColor: "#CE0E2D",
-    padding: 10,
+    padding: 1,
     alignItems: "center",
     fontFamily: "bungee",
     marginTop: 10,
@@ -307,7 +307,8 @@ const templateStyles = StyleSheet.create({
   },
   addButtonText: {
     color: "white",
-    fontFamily: "bungee"
+    fontFamily: "bayon",
+    fontSize: 23
   },
   exerciseItem: {
     flexDirection: "row",
