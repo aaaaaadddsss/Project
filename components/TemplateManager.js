@@ -241,7 +241,6 @@ const templateStyles = StyleSheet.create({
   },
   container: {
     marginTop: 20,
-    padding: 10,
     margin: 20,
   },
   titleContainer: {

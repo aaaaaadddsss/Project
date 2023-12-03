@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   exercisesName: {
     fontSize: 20,
     color: "white",
-    fontFamily: "bungee",
+    fontFamily: "bvpl",
     marginLeft: 10,
   },
 });
