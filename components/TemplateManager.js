@@ -295,6 +295,8 @@ const templateStyles = StyleSheet.create({
   inputLabel: {
     color: "white",
     marginRight: 10,
+    fontFamily: "bayon",
+    fontSize: 20
   },
   addButton: {
     backgroundColor: "#CE0E2D",
@@ -318,6 +320,7 @@ const templateStyles = StyleSheet.create({
   },
   exerciseText: {
     color: "white",
+    fontFamily: "bayon"
   },
   exerciseButtons: {
     flexDirection: "row",
@@ -333,6 +336,8 @@ const templateStyles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
+    fontFamily: "bayon",
+    fontSize: 15
   },
 });
 
