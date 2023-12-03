@@ -21,11 +21,10 @@ const Cards = ({ selectedCategory }) => {
     <View>
       <FlatList
         data={filteredExerciseList}
+        keyExtractor={(item) => item.id.toString()} // Add this line to specify the key
         renderItem={({ item }) => (
           <Pressable
-            onPress={() =>
-              navigation.navigate("Detail", { item: item })
-            }
+            onPress={() => navigation.navigate("Detail", { item: item })}
           >
             <View style={styles.container}>
               <Image source={item.image} style={styles.img} />

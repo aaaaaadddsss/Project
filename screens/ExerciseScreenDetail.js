@@ -34,9 +34,9 @@ const ExerciseScreenDetail = ({ navigation, route }) => {
         <View style={styles.exerciseTitle}>
           <Text style={styles.exerciseName}>Exercises: </Text>
 
-          {item.exercises.map((exercise) => {
+          {item.exercises.map((exercise, index) => {
             return (
-              <View
+              <View key={index}
                 style={{
                   flexDirection: "row",
                   alignItems: "center",

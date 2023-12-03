@@ -5,16 +5,16 @@ import { WorkOutSplit } from "../Preset";
 const WorkoutSplitFilter = ({ onSelectCategory, selectedCategory }) => {
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      {WorkOutSplit.map((split, index) => {
+      {WorkOutSplit.map((split) => {
         const isSelected = selectedCategory === split.split;
-
+  
         return (
           <View
+            key={split.id.toString()}  // Ensure id is converted to string
             style={[
               styles.container,
               { backgroundColor: isSelected ? "white" : "#CE0E2D" },
             ]}
-            key={split.id}
           >
             <Text
               style={{
