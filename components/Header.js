@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderBottomWidth: 5,
     borderBottomColor: "#005CB9",
-    paddingBottom: 9, // Add marginBottom for a margin beneath the border
+    paddingBottom: 9, 
   },
   sectionTitle: {
     fontSize: 30,

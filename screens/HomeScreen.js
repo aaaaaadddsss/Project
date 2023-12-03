@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingTop: 20,
     paddingBottom: 10,
   },
   calendar: {

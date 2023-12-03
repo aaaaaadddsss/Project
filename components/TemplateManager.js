@@ -9,7 +9,7 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
-
+import Header from "../components/Header";
 
 const TemplateManager = ({ onUpdateTemplates }) => {
   const [templates, setTemplates] = useState([]);
@@ -68,7 +68,11 @@ const TemplateManager = ({ onUpdateTemplates }) => {
   };
 
   const updateExercise = () => {
-    if (exerciseName && currentTemplate !== null && selectedExerciseIndex !== null) {
+    if (
+      exerciseName &&
+      currentTemplate !== null &&
+      selectedExerciseIndex !== null
+    ) {
       const updatedTemplates = templates.map((template, index) =>
         index === currentTemplate
           ? {
@@ -100,7 +104,9 @@ const TemplateManager = ({ onUpdateTemplates }) => {
   return (
     <ScrollView style={templateStyles.scrollView}>
       <View style={templateStyles.container}>
-        <Text style={templateStyles.heading}>Workouts</Text>
+        <View style={templateStyles.titleContainer}>
+          <Text style={templateStyles.sectionTitle}>Workouts</Text>
+        </View>
         <FlatList
           data={templates}
           keyExtractor={(item, index) => index.toString()}
@@ -119,7 +125,9 @@ const TemplateManager = ({ onUpdateTemplates }) => {
         {currentTemplate !== null && showAddExercise && (
           <ScrollView>
             <View style={templateStyles.exerciseContainer}>
-              <Text style={templateStyles.subHeading}>Add / Update Exercise</Text>
+              <Text style={templateStyles.subHeading}>
+                Add / Update Exercise
+              </Text>
               <TextInput
                 style={templateStyles.input}
                 placeholder="Exercise Name"
@@ -167,39 +175,46 @@ const TemplateManager = ({ onUpdateTemplates }) => {
                 }}
               >
                 <Text style={templateStyles.addButtonText}>
-                  {selectedExerciseIndex !== null ? "Update Exercise" : "Add Exercise"}
+                  {selectedExerciseIndex !== null
+                    ? "Update Exercise"
+                    : "Add Exercise"}
                 </Text>
               </TouchableOpacity>
             </View>
             <View style={templateStyles.exerciseContainer}>
               <Text style={templateStyles.subHeading}>Exercises</Text>
-              {templates[currentTemplate].exercises.map((exercise, exerciseIndex) => (
-                <View key={exerciseIndex} style={templateStyles.exerciseItem}>
-                  <Text style={templateStyles.exerciseText}>
-                    {exercise.name} - Sets: {exercise.sets}, Reps: {exercise.reps}, Weight: {exercise.weight} kg
-                  </Text>
-                  <View style={templateStyles.exerciseButtons}>
-                    <TouchableOpacity
-                      style={templateStyles.updateButton}
-                      onPress={() => {
-                        setExerciseName(exercise.name);
-                        setSets(exercise.sets);
-                        setReps(exercise.reps);
-                        setWeight(exercise.weight);
-                        setSelectedExerciseIndex(exerciseIndex);
-                      }}
-                    >
-                      <Text style={templateStyles.buttonText}>Update</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={templateStyles.deleteButton}
-                      onPress={() => deleteExercise(currentTemplate, exerciseIndex)}
-                    >
-                      <Text style={templateStyles.buttonText}>Delete</Text>
-                    </TouchableOpacity>
+              {templates[currentTemplate].exercises.map(
+                (exercise, exerciseIndex) => (
+                  <View key={exerciseIndex} style={templateStyles.exerciseItem}>
+                    <Text style={templateStyles.exerciseText}>
+                      {exercise.name} - Sets: {exercise.sets}, Reps:{" "}
+                      {exercise.reps}, Weight: {exercise.weight} kg
+                    </Text>
+                    <View style={templateStyles.exerciseButtons}>
+                      <TouchableOpacity
+                        style={templateStyles.updateButton}
+                        onPress={() => {
+                          setExerciseName(exercise.name);
+                          setSets(exercise.sets);
+                          setReps(exercise.reps);
+                          setWeight(exercise.weight);
+                          setSelectedExerciseIndex(exerciseIndex);
+                        }}
+                      >
+                        <Text style={templateStyles.buttonText}>Update</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        style={templateStyles.deleteButton}
+                        onPress={() =>
+                          deleteExercise(currentTemplate, exerciseIndex)
+                        }
+                      >
+                        <Text style={templateStyles.buttonText}>Delete</Text>
+                      </TouchableOpacity>
+                    </View>
                   </View>
-                </View>
-              ))}
+                )
+              )}
             </View>
           </ScrollView>
         )}
@@ -209,7 +224,10 @@ const TemplateManager = ({ onUpdateTemplates }) => {
           value={newTemplateName}
           onChangeText={(text) => setNewTemplateName(text)}
         />
-        <TouchableOpacity style={templateStyles.addButton} onPress={addTemplate}>
+        <TouchableOpacity
+          style={templateStyles.addButton}
+          onPress={addTemplate}
+        >
           <Text style={templateStyles.addButtonText}>Add Workout</Text>
         </TouchableOpacity>
       </View>
@@ -226,15 +244,21 @@ const templateStyles = StyleSheet.create({
     padding: 10,
     margin: 20,
   },
-  heading: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "white",
-    marginBottom: 10,
+  titleContainer: {
+    flex: 1,
+    borderBottomWidth: 5,
+    borderBottomColor: "#005CB9",
+    paddingBottom: 10, 
+    marginBottom: 10
+  },
+  sectionTitle: {
+    fontSize: 30,
+    color: "#CE0E2D",
+    marginTop: 20,
+    fontFamily: "bungee",
   },
   subHeading: {
     fontSize: 20,
-    fontWeight: "bold",
     color: "white",
     marginBottom: 10,
     fontFamily: "bungee",
@@ -243,9 +267,13 @@ const templateStyles = StyleSheet.create({
     backgroundColor: "#333",
     padding: 10,
     marginBottom: 10,
+    marginTop: 10,
+    borderRadius: 15
   },
   templateName: {
     color: "white",
+    fontFamily: "bayon",
+    fontSize: 15,
   },
   exerciseContainer: {
     marginTop: 20,
@@ -254,26 +282,31 @@ const templateStyles = StyleSheet.create({
     backgroundColor: "#444",
     padding: 10,
     marginBottom: 10,
+    marginTop: 10,
     color: "white",
+    borderRadius: 15
   },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 10,
+    marginTop: 10,
   },
   inputLabel: {
     color: "white",
     marginRight: 10,
   },
   addButton: {
-    backgroundColor: "#C  E0E2D",
+    backgroundColor: "#CE0E2D",
     padding: 10,
     alignItems: "center",
     fontFamily: "bungee",
+    marginTop: 10,
+    borderRadius: 15
   },
   addButtonText: {
     color: "white",
-    fontWeight: "bold",
+    fontFamily: "bungee"
   },
   exerciseItem: {
     flexDirection: "row",
