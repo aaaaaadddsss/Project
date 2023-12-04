@@ -1,5 +1,14 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, SafeAreaView, TextInput, TouchableOpacity } from "react-native";
+import Modal from "react-native-modal";
+import { LineChart } from "react-native-chart-kit";
+import React, { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import Header from "../components/Header";
 import CalendarStrip from "react-native-calendar-strip";
 
@@ -9,18 +18,30 @@ const HomeScreen = ({ templates }) => {
   const [workoutPlan, setWorkoutPlan] = useState("");
   const [exerciseType, setExerciseType] = useState("");
   const [weight, setWeight] = useState("");
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [weightData, setWeightData] = useState([]);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
+  useEffect(() => {
+    // Set the initial selected date to the current date when the component mounts
+    setSelectedDate(new Date());
+
+    // Manually trigger the selection of the current date
+    onDateSelected(new Date());
+  }, []);
 
   const onDateSelected = (date) => {
     setSelectedDate(date);
   };
 
-  const onWeekChanged = (start, end) => {
-    // For simplicity, let's use the start date of the week
+  const onWeekChanged = (start) => {
     setSelectedDate(start);
   };
 
   const handleAddWorkout = () => {
-    // Store workout details for the selected date
     const updatedWorkoutDetails = {
       ...workoutDetails,
       [selectedDate.toISOString()]: {
@@ -33,15 +54,19 @@ const HomeScreen = ({ templates }) => {
     // Update state with the new workout details
     setWorkoutDetails(updatedWorkoutDetails);
 
+    // Update weight data
+    const weights = Object.values(updatedWorkoutDetails)
+      .filter((entry) => entry.weight !== undefined)
+      .map((entry) => parseFloat(entry.weight));
+    setWeightData(weights);
+
     // Reset input fields
     setWorkoutPlan("");
     setExerciseType("");
     setWeight("");
   };
 
-  // Get workout details for the selected date
-  const selectedDateDetails =
-    workoutDetails[selectedDate.toISOString()] || {};
+  const selectedDateDetails = workoutDetails[selectedDate.toISOString()] || {};
 
   return (
     <SafeAreaView style={styles.container}>
@@ -118,6 +143,51 @@ const HomeScreen = ({ templates }) => {
           <Text style={styles.selectedDateDetailsText}>
             Weight (KG): {selectedDateDetails.weight || "-"}
           </Text>
+
+          <TouchableOpacity style={styles.addButton} onPress={toggleModal}>
+            <Text style={styles.addButtonLabel}>History</Text>
+          </TouchableOpacity>
+
+          <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>
+            <View style={styles.modalContent}>
+              <Text style={styles.modalTitle}>Weight History for the Week</Text>
+              <LineChart
+                data={{
+                  labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                  datasets: [
+                    {
+                      data: weightData,
+                    },
+                  ],
+                }}
+                width={350}
+                height={200}
+                yAxisSuffix="kg"
+                chartConfig={{
+                  backgroundColor: "#1cc910",
+                  backgroundGradientFrom: "#eff3ff",
+                  backgroundGradientTo: "#efefef",
+                  decimalPlaces: 2,
+                  color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                  labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                  style: {
+                    borderRadius: 16,
+                  },
+                  propsForDots: {
+                    r: "6",
+                    strokeWidth: "2",
+                    stroke: "#ffa726",
+                  },
+                }}
+              />
+              <TouchableOpacity
+                style={styles.closeButton}
+                onPress={toggleModal}
+              >
+                <Text style={styles.closeButtonText}>Close</Text>
+              </TouchableOpacity>
+            </View>
+          </Modal>
         </View>
       </View>
     </SafeAreaView>
@@ -165,12 +235,15 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     marginBottom: 5,
+    fontFamily: "bungee"
   },
   formInput: {
     backgroundColor: "white",
     height: 40,
     marginBottom: 15,
     paddingHorizontal: 10,
+    borderRadius: 10,
+    fontFamily: "bayon"
   },
   addButton: {
     backgroundColor: "#CE0E2D",
@@ -181,8 +254,9 @@ const styles = StyleSheet.create({
   addButtonLabel: {
     color: "white",
     fontWeight: "bold",
+    fontFamily: "bungee"
   },
-    selectedDateDetailsContainer: {
+  selectedDateDetailsContainer: {
     marginTop: 20,
     paddingHorizontal: 20,
   },
@@ -191,11 +265,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
+    fontFamily: "bungee"
   },
   selectedDateDetailsText: {
     color: "white",
     fontSize: 16,
-    marginBottom: 5,
+    marginBottom: 10,
+    fontFamily: "bvpl"
+
   },
 });
 

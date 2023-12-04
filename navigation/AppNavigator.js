@@ -11,7 +11,7 @@ import WelcomeScreen from "../screens/WelcomeScreen";
 import PresetScreen from "../screens/PresetScreen";
 import HomeScreen from "../screens/HomeScreen";
 import ExerciseScreenDetail from "../screens/ExerciseScreenDetail";
-import CreateTemplateScreen from "../screens/CreateTemplateScreen";
+// import CreateTemplateScreen from "../screens/CreateTemplateScreen";
 
 // Fonts
 Font.loadAsync({
@@ -103,7 +103,7 @@ function MainScreen() {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Createtemplate"
         component={CreateTemplateScreen}
         options={{
@@ -120,7 +120,7 @@ function MainScreen() {
             </View>
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Preset"
         component={PresetScreen}
