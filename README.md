@@ -33,10 +33,10 @@ The application size will be 250MB.
 Users can download and install the application using the App Store installed on the user’s device.
 
 # Developers
-## Baltazar, Rendell Jay S.
-## Dayang, Adrian Gerard M.
-## Nepomuceno, Cyrus Snake R.
-## Ocampo, Laurence J.
+Baltazar, Rendell Jay S.
+Dayang, Adrian Gerard M.
+Nepomuceno, Cyrus Snake R.
+Ocampo, Laurence J.
 
 
 
